@@ -1,0 +1,85 @@
+###
+POST http://localhost:8080/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "ivan",
+  "password": "pass1234"
+}
+
+###
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "user",
+  "password": "user123"
+}
+
+###
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "admin123"
+}
+
+###
+POST http://localhost:8080/api/auth/refresh
+Content-Type: application/json
+
+{
+  "refreshToken": "{{refreshToken}}"
+}
+
+###
+POST http://localhost:8080/api/auth/logout
+Content-Type: application/json
+
+{
+  "refreshToken": "{{refreshToken}}"
+}
+
+###
+POST http://localhost:8080/api/orders
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "product": "Laptop",
+  "quantity": 1,
+  "price": 1200.00
+}
+
+###
+GET http://localhost:8080/api/orders
+Authorization: Bearer {{accessToken}}
+
+###
+GET http://localhost:8080/api/orders/1
+Authorization: Bearer {{accessToken}}
+
+###
+PUT http://localhost:8080/api/orders/1
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "product": "Laptop Pro",
+  "quantity": 2,
+  "price": 1500.00
+}
+
+###
+PUT http://localhost:8080/api/orders/1/status
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "status": "PAID"
+}
+
+###
+DELETE http://localhost:8080/api/orders/1
+Authorization: Bearer {{accessToken}}

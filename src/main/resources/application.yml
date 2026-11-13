@@ -1,0 +1,35 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: spring-security-jwt
+
+  datasource:
+    url: jdbc:h2:mem:jwt_demo;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+app:
+  jwt:
+    secret: "demo-secret-key-for-students-must-be-at-least-32-chars-long"
+    access-token-expiration-ms: 900000
+    refresh-token-expiration-ms: 604800000
+
+logging:
+  level:
+    org.springframework.security: INFO
